@@ -1,8 +1,6 @@
 ---
 - hosts: localhost
   tasks:
-    - name: Install homebrew
-
     - name: Make sure homebrew bin is in path
       ansible.builtin.lineinfile:
         path: /etc/paths
