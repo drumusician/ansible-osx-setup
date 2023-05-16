@@ -2,10 +2,6 @@
 # instead make changes to ~/.zshrc.personal which is loaded after this file
 
 # Setup some standard paths
-export ANDROID_HOME=~/Library/Android/sdk
-export PATH=${PATH}:${ANDROID_HOME}/tools
-export PATH=${PATH}:${ANDROID_HOME}/platform-tools
-export PATH=/usr/local/opt/imagemagick@6/bin:${PATH}
 
 export optflags="-Wno-error=implicit-function-declaration"
 export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
@@ -19,8 +15,6 @@ export PKG_CONFIG_PATH="${PKG_CONFIG_PATH} /opt/homebrew/opt/zlib/lib/pkgconfig"
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 plugins=(git kubectl)
-DISABLE_UNTRACKED_FILES_DIRTY="true"
-ZSH_DISABLE_COMPFIX=true
 
 # Load personal pre oh-my-zsh init config which should be stored in ~/.zshrc.personal.before
 # E.g. setting ZSH theme etc

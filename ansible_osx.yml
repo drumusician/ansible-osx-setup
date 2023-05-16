@@ -15,14 +15,7 @@
 
     - name: 'add custom homebrew repos'
       community.general.homebrew_tap:
-        name: [
-          adoptopenjdk/openjdk,
-          fishtown-analytics/dbt,
-          heroku/brew,
-          homebrew/cask-versions,
-          thoughtbot/formulae,
-          weaveworks/tap,
-        ]
+        name: []
 
     - name: Install core packages via brew casks
       community.general.homebrew_cask:
@@ -30,44 +23,32 @@
       ignore_errors: yes
       with_items:
         - 1password
-        - android-sdk
-        - android-studio
-        - datagrip
         - docker
-        - dropbox
-        - figma
+        - alfred
         - google-chrome
-        - google-cloud-sdk
-        - iterm2
         - kindle
         - ngrok
         - slack
-        - sublime-text
         - telegram
         - visual-studio-code
         - vlc
-        - zoom
-        - tuple
+        - postman
+        - postico2
+        - postgres
 
     - name: "Install homebrew packages"
       community.general.homebrew:
         name: [
           'autoconf',
           'automake',
-          'aws-iam-authenticator',
           'awscli',
-          'bfg',
           'coreutils',
           'curl',
-          'dbt@0.18.0',
           'direnv',
-          'dnsmasq',
           'fzf',
           'gnu-time',
           'gpg',
-          'heroku',
           'htop',
-          'imagemagick@6',
           'kubectx',
           'kubernetes-cli',
           'kubernetes-helm',
@@ -77,17 +58,13 @@
           'mas',
           'openssl' ,
           'pkg-config',
-          'postgresql',
-          'rcm',
           'readline',
-          'redis',
           'sqlite3',
           'tmux',
           'unixodbc',
           'unzip',
-          'vim',
+          'neovim',
           'watchman',
-          'xz',
           'yarn',
           'zlib',
           'zsh',
@@ -145,24 +122,11 @@
     - name: Install VSCode extensions
       shell: code --install-extension {{ item }}
       with_items:
-        - apollographql.vscode-apollo
         - bradlc.vscode-tailwindcss
-        - castwide.solargraph
-        - clinyong.vscode-css-modules
         - eamodio.gitlens
         - jakebecker.elixir-ls
-        - kaiwood.endwise
-        - karunamurti.haml
-        - ms-vscode-remote.vscode-remote-extensionpack
-        - ms-vscode.vscode-typescript-tslint-plugin
-        - msjsdiag.debugger-for-chrome
-        - rebornix.ruby
-        - richie5um2.vscode-sort-json
-        - Tyriar.sort-lines
-        - vscodevim.vim
         - wholroyd.jinja
         - wingrunr21.vscode-ruby
-        - xabikos.javascriptsnippets
         - streetsidesoftware.code-spell-checker
         - fabiospampinato.vscode-todo-plus
 
@@ -217,25 +181,19 @@
     - name: "Install default erlang"
       shell: |
         source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
-        asdf install erlang 24.0.2
-        asdf global  erlang 24.0.2
+        asdf install erlang 25.3.2
+        asdf global erlang 25.3.2
 
 
     - name: "Install default elixir"
       shell: |
         source /Users/{{ lookup('env', 'USER') }}/.asdf/asdf.sh
-        asdf install elixir 1.12.3-otp-24
-        asdf global elixir 1.12.3-otp-24
+        asdf install elixir 1.14.4-otp-25
+        asdf global elixir 1.14.4-otp-25
         mix local.hex --force
 
     - name: Install yarn packages
       shell: yarn global add {{ item }}
-      with_items:
-        - react-native-cli
-        - create-react-app
-        - apollo
-        - generator-generator
-        - yo
         
     - name: re-generate bins now we've installed some yarn packages
       shell: asdf reshim nodejs
