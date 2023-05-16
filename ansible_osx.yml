@@ -3,7 +3,7 @@
   tasks:
     - name: Install homebrew
       include_role:
-        name: geerlingguy.homebrew
+        name: geerlingguy.mac
 
     - name: Make sure homebrew bin is in path
       ansible.builtin.lineinfile:
