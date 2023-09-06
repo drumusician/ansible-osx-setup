@@ -28,7 +28,6 @@
         - kindle
         - ngrok
         - slack
-        - telegram
         - visual-studio-code
         - vlc
         - postman
@@ -71,6 +70,7 @@
           'yarn',
           'zlib',
           'zsh',
+          'lazygit'
         ]
         state: present
         update_homebrew: yes
